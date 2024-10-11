@@ -49,7 +49,7 @@ In the upcomming slides we will go through;
 * Git: Merge conflicts
 * Git: Revert / reset
 * Git: Stash
-* Git: Pushing
+* Git: Push/Pull
 * Git: Pull Request
 
 The section noted with "Git: ..." will follow a structure of `introduction` -> `video` -> `theory` -> `wrap-up`
@@ -317,7 +317,7 @@ gitGraph
 
 ---
 
-# Git: Branches - wrap-up
+# Git: Branches - recap
 
 Lala something
 
@@ -398,7 +398,7 @@ git merge origin/main
 
 ---
 
-# Git: Merge / rebasing - wrap-up
+# Git: Merge / rebasing - recap
 
 Something something wrap up merge and rebase
 
@@ -423,7 +423,7 @@ There are not really any useful commands for when you need to handle a merge con
 
 ---
 
-# Git: Merge conflict
+# Git: Merge conflicts
 
 When you are more than one participant on a git repository, then you will at some point run into a merge conflict. <br>
 
@@ -487,6 +487,12 @@ This will result in a conflict where both colleague1 and colleague2 have changed
 The diff is noted with all the special characters you in one block has what current revision marks as the "truth" and another block marks the incoming change as possible new "truth". Merge conflicts can happen both when doing local merge/rebase or when you open a PR. Often times the git server cannot handle merge conflicts for you, so you are required to do it locally.
 
 Merge conflicts can be handled "easily" in your favorite IDE.
+
+---
+
+# Git: Merge conflicts - recap
+
+recap
 
 ---
 
@@ -587,15 +593,17 @@ The main difference between revert and reset is that revert is for undoing chang
 
 </template>
 
-
-
 </v-switch>
+
+---
+
+# Git: Revert / Reset - recap
 
 ---
 
 # Git: Stash - introduction
 
-Git `stash` is a command that can help you save work that you unintentionally put on the wrong branch. When you have made changes to files while having checked out the wrong branch, and you then want to transfer said changes to a correct target branch, then git will prohibit you from simply checkout out said branch. This is where `git stash` comes in handy, since you by this can save work in a queue, checkout the correct target branch and `pop` the changes out of the queue thereby onto the currect target branch.
+Git `stash` is a command that can help you save work that you unintentionally put on the wrong branch. When you have made changes to files while having checked out the wrong branch, and you then want to transfer said changes to a correct target branch, then git will prohibit you from simply checkout out said branch. This is where `git stash` comes in handy, since you by this can save work in a queue, checkout the correct target branch and `pop` the changes out of the queue thereby onto the current target branch.
 
 Useful commands:
 
@@ -622,26 +630,35 @@ Git stash works as a LIFO queue (last in - first out), where if you run `git sta
 
 ```bash
 git stash list # will list the current queue of stashed entries
-git stash push # will push current edits into a stash entry for the queue
+git stash # will push current edits into a stash entry for the queue
 git stash list # Should now have a single entry in it
 git stash pop # will remove the entry from the queue and apply the edits again in the local repo
 ```
 
 ---
 
-# Git: Pushing - introduction
-
-lala introduction to git push
+# Git: Stash - recap
 
 ---
 
-# Git: Pushing - video
+# Git: Push / Pull - introduction
 
-Cant find it....
+Git `push` or `pull` are operations that respectively push or pull synchronize commits to/with origin for a given branch or all branches. With `git push` you add your local changes to a remote repository, and with `git pull` you fetch and include remote changes into your branch.
+
+Useful commands:
+
+* `git push origin` - will push changes to origin for the current checked out branch
+* `git pull origin` - will pull changes from origin for the current checked out branch
 
 ---
 
-# Git: Pushing
+# Git: Push / Pull - video
+
+404 not found
+
+---
+
+# Git: Push / Pull - recap
 
 lala some course material on git push
 
@@ -649,19 +666,25 @@ lala some course material on git push
 
 # Git: Pull Request - introduction
 
-Lala intro to git pull request
+
 
 ---
 
 # Git: Pull Request - video
 
-Cant find it....
+404 not found
 
 ---
 
 # Git: Pull Request
 
 lala some course material on git Pull Request
+
+---
+
+# Git: Pull Request - recap
+
+recap
 
 ---
 
