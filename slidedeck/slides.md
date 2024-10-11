@@ -595,7 +595,13 @@ The main difference between revert and reset is that revert is for undoing chang
 
 # Git: Stash - introduction
 
-lala intro to git stash
+Git `stash` is a command that can help you save work that you unintentionally put on the wrong branch. When you have made changes to files while having checked out the wrong branch, and you then want to transfer said changes to a correct target branch, then git will prohibit you from simply checkout out said branch. This is where `git stash` comes in handy, since you by this can save work in a queue, checkout the correct target branch and `pop` the changes out of the queue thereby onto the currect target branch.
+
+Useful commands:
+
+* `git stash --include-untracked` - will stash the current staged, unstaged and untracked files into the `stash`
+* `git stash pop` - will remove the latest changes added to `stash` and add them to the current checked out branch
+* `git stash list` - will show the items in the current `stash` queue
 
 ---
 
