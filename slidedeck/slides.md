@@ -319,9 +319,13 @@ gitGraph
 
 # Git: Branches - recap
 
-Lala something
+In previous sections you learned about git `branches`, which to git is the basis for simultaneous work done safely on the same code base. It can be used to do increments on repositories and then `merge` your branch into other branches in order to synchronize your changes with other peers.
 
-Wrap-up branches
+The most notable commands to remember from branches are:
+
+* `git branch -r`
+* `git checkout <branch-name>`
+* `git checkout -b <branch-name>`
 
 ---
 
