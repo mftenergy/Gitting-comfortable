@@ -50,7 +50,7 @@ In the upcomming slides we will go through;
 * Git: Revert / reset
 * Git: Stash
 * Git: Push/Pull
-* Git: Pull Request
+* Git: Pull-Request
 
 The section noted with "Git: ..." will follow a structure of `introduction` -> `video` -> `theory` -> `wrap-up`
 
@@ -352,7 +352,7 @@ Useful commands:
 <v-switch>
 
 <template #1>
-It is not just at the git server we need to do merges / rebasing. These also happen locally, usually in order to synchronize a feature branch with changes from main before you create a pull request.
+It is not just at the git server we need to do merges / rebasing. These also happen locally, usually in order to synchronize a feature branch with changes from main before you create a Pull-Request.
 
 You can use the same methods as mentioned above locally, however there are a few rule-of-thumb's that we want to introduces:
 </template>
@@ -664,25 +664,31 @@ lala some course material on git push
 
 ---
 
-# Git: Pull Request - introduction
+# Git: Pull-Request - introduction
 
+A git `Pull-Request` is a server side operation of facilitating a merge between two branches. A `Pull-Request` differs a lot servers between, but generally they all contain functionality like;
 
+* Viewing diff view of changes `from` branch `to` branch
+* `Assignee` and `Reviewer`
+* Comment threads
+* Approvals, rejections and suggestions
+* Merge with support for different strategies
 
 ---
 
-# Git: Pull Request - video
+# Git: Pull-Request - video
 
 404 not found
 
 ---
 
-# Git: Pull Request
+# Git: Pull-Request
 
-lala some course material on git Pull Request
+lala some course material on git Pull-Request
 
 ---
 
-# Git: Pull Request - recap
+# Git: Pull-Request - recap
 
 recap
 
