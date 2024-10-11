@@ -107,7 +107,7 @@ C2 -->|commit| L2[Local Repository]
 ```
 
 ---
-layout: two-cols-header
+layout: two-cols
 ---
 
 # Why Git?
@@ -327,7 +327,14 @@ Wrap-up branches
 
 # Git: Merge / rebase - introduction
 
-lalaala something introduction to merges and rebase
+Git `merge` or `rebase` is an operation of combining the content of two branches. It is mostly used locally when you branch out of your `main` or `master` branch and want to `merge` `main` into your feature branch in order to get the latest revision of changes from main. A `merge` is also used when going from a feature branch to `main` but this is often facilitated by a `Pull-Request` which we will go over in later chapters.
+
+Useful commands:
+
+* `git merge origin/main` - when a feature branch is checked out, then this command will merge the current `local` changes of main into your current checked out branch.
+* `git pull origin/main` - this is a combination command that will first pull changes from `origin main` and then merge these changes to your current checked out branch.
+* `git rebase origin/main` - this will do a rebase of current branch based on `origin main`.
+* [Git merge strategies](https://git-scm.com/docs/merge-strategies) - this docs, which can also be read with `man git merge`, explains different merge strategies that can be applied to `git merge`.
 
 ---
 
