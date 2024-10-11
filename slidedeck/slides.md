@@ -255,9 +255,14 @@ flowchart LR
 
 # Git: Branches - introduction
 
-Something about git branches
+Git `branches` is a requirement of git. `Branches` are effectively a pointer to a snapshot of your changes, they keep track of increments in commits, and you have multiple long or short-lived `branches` where when you combine branches with a `merge`, the origin of the _from_ branch can be deleted.
 
-lalalala
+Useful commands:
+
+* `git branch -a` - will display all available branches both remote and local
+* `git branch name` - will create `name` as a branch
+* `git checkout name` - will switch to newly created branch `name`
+* `git checkout -b featurebranch` - will create branch `featurebranch` and switch to it, all in one command.
 
 ---
 
