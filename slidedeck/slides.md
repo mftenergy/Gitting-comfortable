@@ -38,6 +38,24 @@ If you are completly new to git, then see the below video. If you know the basic
 
 ---
 
+# Format of the slides
+
+In the upcomming slides we will go through;
+
+* Basics of Git
+* Why Git?
+* Git: branches
+* Git: Merges / rebasing
+* Git: Merge conflicts
+* Git: Revert / reset
+* Git: Stash
+* Git: Pushing
+* Git: Pull Request
+
+The section noted with "Git: ..." will follow a structure of `introduction` -> `video` -> `theory` -> `wrap-up`
+
+---
+
 # Basics of Git
 
 Git is a version control system that helps you manage text files of all sorts in a collaborative and structured manner. <br>
@@ -232,9 +250,24 @@ flowchart LR
   id2 --> id3
 ```
 </v-click>
+
 ---
 
-# Working with branches
+# Git: Branches - introduction
+
+Something about git branches
+
+lalalala
+
+---
+
+# Git: Branches - video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hwP7WQkmECE?si=klWPkP_ihdEghSNk&amp;start=68" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
+# Git: Branches
 
 Combining branches
 
@@ -247,8 +280,10 @@ A good rule of thumb is that branches should not live for more than two days.
 In reality, this can be difficult to always do, but it is a good compass, none the less. 
 
 Following our previous branch we can now go back to main
+
 <v-switch>
 <template #1>
+
 ```mermaid
 gitGraph
    commit id: "initial"
@@ -274,140 +309,27 @@ gitGraph
 
 ---
 
-# Working with merges / rebasing - in realtion to Pull-Requests
+# Git: Branches - wrap-up
 
-<v-switch>
-<template #1>
-A Pull-Request is the process of raising awareness about a merge from a branch to a target branch, such as a feature branch to main. <br>
-The Pull-Request facilitates things like discussions, change requests to edits, diff views, approvals etc - more on this later.
+Lala something
 
-But most importantly it facilitates what happens when a Pull-Request is completed
-</template>
-
-<template #2>
-There exists different methods of completing a Pull-Request;
-
-1. No fast-forward
-1. Fast-forward
-1. Squash commit
-1. Rebase with fast-forward or merge commit
-
-</template>
-
-<template #3>
-
-**No fast-forward** is the method of not rewriting history and simply adding on top of the target branch.
-
-```mermaid
-gitGraph
-  commit id: "1"
-  branch feature/1
-  commit id: "2"
-  checkout main
-  merge feature/1
-```
-
-</template>
-
-<template #4>
-
-**Fast-forward** is the method of rewriting target branch to represent a linear history of events. In below graph you see a merge where the merged point is highlighted and represent a duplicate of the commit with id 2 that happened on the feature branch. If a git log is correctly drawn after the impact of the merge, the branch `feature/implement` will no longer be present in the git history.
-
-```mermaid
-gitGraph
-  commit id: "1"
-  branch feature/implement
-  commit id: "2"
-  checkout main
-  merge feature/implement id: "duplicate_2" type: HIGHLIGHT
-```
-
-</template>
-
-<template #5>
-
-**Squash commit** is the method of squashing all your commits that happened on the feature branch to a single commit on the target. This method is much like fast-forward in the sense that the existence of the feature branch will be gone in relation to the history after the merge is complete. This method creates a very clean linear git history.
-
-
-```mermaid
-gitGraph
-  commit id: "Init"
-  branch squash-mr
-  commit id: "commit 1"
-  commit id: "commit 2"
-  checkout main
-  merge squash-mr id: "squashed commit" type: HIGHLIGHT
-```
-
-</template>
-
-<template #6>
-
-**Rebase** A rebase strategy works a in a sense reverse to how regular merges does. Instead of adding on top of the target branch, rebase takes each commit on the feature branch and merges one by one with the differences that happened on main since the feature branch got created.
-
-```mermaid
-gitGraph
-  commit id: "Init"
-  branch feature/rebase
-  commit id: "commit 1"
-  commit id: "commit 2"
-  checkout main
-  commit id: "commit main"
-```
-
-</template>
-
-<template #7>
-Rebase
-<br>
-
-```mermaid
-gitGraph
-  commit id: "Init"
-  branch feature/rebase
-  commit id: "_commit main"
-  commit id: "rebased commit 1"
-  commit id: "rebased commit 2"
-  checkout main
-  commit id: "commit main"
-```
-
-</template>
-
-<template #8>
-Rebase and merge
-<br>
-
-```mermaid
-gitGraph
-  commit id: "Init"
-  commit id: "commit main"
-  commit id: "rebased commit 1"
-  commit id: "rebased commit 2"
-```
-
-</template>
-
-<template #9>
-
-For more information on read the following topics;
-
-1. [Merging vs Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing#:~:text=Integrating%20an%20approved%20feature&text=However%2C%20by%20performing%20a%20rebase,added%20during%20a%20pull%20request.)
-1. [Git merge](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
-
-</template>
-
-</v-switch>
+Wrap-up branches
 
 ---
 
-# Video on git merge / rebase
+# Git: Merge / rebase - introduction
+
+lalaala something introduction to merges and rebase
+
+---
+
+# Git: Merge / rebase - video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0chZFIZLR_0?si=wXEsqrpC528IVvkj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
-# Working with merges / rebasing - in realtion to local git
+# Git: Merge / rebasing
 
 <v-switch>
 
@@ -458,7 +380,25 @@ git merge origin/main
 
 ---
 
-# Merge conflicts
+# Git: Merge / rebasing - wrap-up
+
+Something something wrap up merge and rebase
+
+---
+
+# Git: Merge conflicts - introduction
+
+An introduction to merge conflicts
+
+---
+
+# Git: Merge conflict - video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Sqsz1-o7nXk?si=-vQfv2kamrGYfnf4&amp;start=68" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
+# Git: Merge conflict
 
 When you are more than one participant on a git repository, then you will at some point run into a merge conflict. <br>
 
@@ -504,7 +444,7 @@ You both edited the same file `text.txt` on the same line 1:
 
 ---
 
-# Merge conflicts
+# Git: Merge conflicts
 
 When you are more than one participant on a git repository, then you will at some point run into a merge conflict. <br>
 
@@ -525,14 +465,19 @@ Merge conflicts can be handled "easily" in your favorite IDE.
 
 ---
 
+# Git: Revert / reset - introduction
 
-# Short video on git revert
+Lala intro to revert reset
+
+---
+
+# Git: Revert / reset - video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/H2DuJNWbqLw?si=Ltw_X87fbonFOsqe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
-# Reverting / Reset
+# Git: Revert / Reset
 
 You can end up in a situation where you find yourself in a detached head state or you simply committed to the wrong branch or similar. This is where [git revert](https://git-scm.com/docs/git-revert) or [git reset](https://git-scm.com/docs/git-reset) comes in handy.
 
@@ -613,13 +558,19 @@ The main difference between revert and reset is that revert is for undoing chang
 
 ---
 
-# Video on git stash
+# Git: Stash - introduction
+
+lala intro to git stash
+
+---
+
+# Git: Stash - video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lH3ZkwbVp5E?si=z4V07VS_zoSn5Qb0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
-# Stashing changes
+# Git: Stash
 
 Git stashing is the method of saving your unstaged work for a later point. Often it can be used to save work in order to do a `git pull` or if you made changes on a branch that should not have been done from that revision.
 
@@ -634,6 +585,41 @@ git stash pop # will remove the entry from the queue and apply the edits again i
 
 ---
 
+# Git: Pushing - introduction
+
+lala introduction to git push
+
+---
+
+# Git: Pushing - video
+
+Cant find it....
+
+---
+
+# Git: Pushing
+
+lala some course material on git push
+
+---
+
+# Git: Pull Request - introduction
+
+Lala intro to git pull request
+
+---
+
+# Git: Pull Request - video
+
+Cant find it....
+
+---
+
+# Git: Pull Request
+
+lala some course material on git Pull Request
+
+---
 
 # Time to do exercises!
 
