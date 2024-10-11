@@ -502,7 +502,9 @@ Merge conflicts can be handled "easily" in your favorite IDE.
 
 # Git: Merge conflicts - recap
 
+In previous section you learned about `merge conflicts` in git. Merge conflicts is when git does not know the truth about how to handle two changes in the same file on the same line. The conflict is always a result of either a `merge` with another branch that contains edits on the same line in the same file as you have on your current branch.
 
+The key takeaway of this section is that `merge conflicts` can be a pain to work with, but is necessary for git to have as a concept, and without a UI tool, merge conflicts can be challenging to deal with.
 
 ---
 
