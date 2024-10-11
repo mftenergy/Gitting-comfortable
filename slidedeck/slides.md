@@ -404,7 +404,13 @@ git merge origin/main
 
 # Git: Merge / rebasing - recap
 
-Something something wrap up merge and rebase
+In previous section you learned about git `merge` and `rebase` which are both methods of combining content between two branches. They are similar in usage, but function differently in how the history will turn out for the two operations. We use `merge` or `rebase` locally when we want to pull new changes from `main` into our feature branch or when we want to combine two local branches. 
+
+The most notable commands to remember are:
+
+* `git merge`
+* `git rebase`
+* `git pull origin main`
 
 ---
 
@@ -496,7 +502,7 @@ Merge conflicts can be handled "easily" in your favorite IDE.
 
 # Git: Merge conflicts - recap
 
-recap
+
 
 ---
 
