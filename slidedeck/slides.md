@@ -406,7 +406,11 @@ Something something wrap up merge and rebase
 
 # Git: Merge conflicts - introduction
 
-An introduction to merge conflicts
+`Merge conflicts` are a concept in git that exists due to it by nature is a version control tool, that allows simultaneous client that can change the same files, sometimes on the same linenumber, and if they then try and merge with eachother or both towards `main` they will experience the concept of `merge conflicts`. The existence of merge conflicts are due to the server not knowing which changes on the same linenumber should be the truth, or if both has the be truth - so you as a client have to help it make that decision by `fixing the merge conflict`.
+
+There are not really any useful commands for when you need to handle a merge conflict, but there is one general recommendation;
+
+* _Make use of an IDE to help you represent a merge conflict_. By default git will create a syntax highligting consisting of `>` and `<` characters to notate the two decision points on any given line/lines that represents the merge conflict. Making sense of these notations can be hard without a vision representation on top, such as vscode, Visual Studio, Idea IDE, Rider etc.
 
 ---
 
