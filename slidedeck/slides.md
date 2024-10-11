@@ -658,6 +658,13 @@ git stash pop # will remove the entry from the queue and apply the edits again i
 
 # Git: Stash - recap
 
+In previous section you learned about git `stash` which is a queue that can contain changes without being tied to a branch. Git `stash` is useful for saving and moving work that was unintentional made on a branch where it shouldn't have been made. Git `stash` works as a LIFO queue, meaning when you add something to the queue it will be the top item in the queue, and thereby the first being removed from the queue upon `pop`.
+
+The most notable commands to remember are:
+
+* `git stash`
+* `git stash pop`
+
 ---
 
 # Git: Push / Pull - introduction
