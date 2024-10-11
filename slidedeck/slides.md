@@ -52,7 +52,7 @@ In the upcomming slides we will go through;
 * Git: Push/Pull
 * Git: Pull-Request
 
-The section noted with "Git: ..." will follow a structure of `introduction` -> `video` -> `theory` -> `wrap-up`
+The section noted with "Git: ..." will follow a structure of _introduction_ -> _video_ -> _theory_ -> _wrap-up_
 
 ---
 
@@ -60,7 +60,7 @@ The section noted with "Git: ..." will follow a structure of `introduction` -> `
 
 Git is a version control system that helps you manage text files of all sorts in a collaborative and structured manner. <br>
 
-The concept of git is that you work with a `repository` of which you can create `branches` (think shortlived variants of the codebase) that enables you to collaborate from the same point in time. You `commit` changes to a branch to create a record of your change for others and yourself to keep track of the history in changes. <br>
+The concept of git is that you work with a _repository_ of which you can create _branches_ (think shortlived variants of the codebase) that enables you to collaborate from the same point in time. You `commit` changes to a branch to create a record of your change for others and yourself to keep track of the history in changes. <br>
 
 At the end you sync changes to a git server with `push` in order to save work and synchronize changes with your colleagues or automation systems.
 
@@ -85,7 +85,7 @@ Git works as a client server paradigm
 <br>
 <br>
 
-Git works by a client (a user) cloning the source code from a `repository`, performing edits locally and pushing these edits to `origin` (the server from which you downloaded the source code). <br><br>
+Git works by a client (a user) cloning the source code from a _repository_, performing edits locally and pushing these edits to _origin_ (the server from which you downloaded the source code). <br><br>
 The benefit is here, that you can have multiple clients each with their own cloned repository, working on the same repo at the same time and continuously pushing code to origin.
 
 ::right::
