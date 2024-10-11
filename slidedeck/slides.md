@@ -492,7 +492,14 @@ Merge conflicts can be handled "easily" in your favorite IDE.
 
 # Git: Revert / reset - introduction
 
-Lala intro to revert reset
+Git `revert` or `reset` function differently, but they are often used with the same basic need; undoing something committed and/or pushed to origin. `Revert` works on a single or multiple commits that you want to reverse. `Reset` works on a single or multiple commits/staged changes that you want to unstage/uncommit in order to either reverse them or change in order to stage/commit again.
+
+Useful commands:
+
+* `git reset HEAD~1` - will reset the current changes with the one commit happened on `HEAD` of the branch. The changes will end up unstaged
+* `git reset --soft HEAD~1` - the `--soft` adds that the changes will be staged instead of unstaged
+* `git reset --hard HEAD~1` - the `--hard` adds that the changes will be completely undone.
+* `git revert <commit-id>` - will create a new commit reverting the content of commit id you put into `<commit-id>`.
 
 ---
 
