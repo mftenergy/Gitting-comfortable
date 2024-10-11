@@ -611,6 +611,13 @@ The main difference between revert and reset is that revert is for undoing chang
 
 # Git: Revert / Reset - recap
 
+In previous section you learned about git `revert` and `reset`, which both are two commands for undoing work in git. `Revert` will undo commit(s) by creating a new commit with the undoing of the changes, while `reset` will "uncommit" or entirely erase committed changes based on strategy.
+
+The most notable commands to remember are:
+
+* `git reset --soft/hard <commit-id>/HEAD~<index>`
+* `git revert <commit-id>/HEAD~<index>`
+
 ---
 
 # Git: Stash - introduction
