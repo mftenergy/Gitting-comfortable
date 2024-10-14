@@ -68,10 +68,12 @@ At the end you sync changes to a git server with `push` in order to save work an
 # Add a file to "staging"
 git add <file>
 
-# Records all changes that are staged by add with documentation on the work done in the files
+# Records all changes that are staged by add with documentation on the work 
+# done in the files
 git commit -m <message>
 
-# Push all missing commits from localhost (your machine) to a git server syncing your records with a server for collaboration
+# Push all missing commits from localhost (your machine) to a git server 
+# syncing your records with a server for collaboration
 git push -u origin <branch>
 
 # Create and switch branch in a single command
