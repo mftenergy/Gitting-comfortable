@@ -107,7 +107,7 @@ C2 -->|commit| L2[Local Repository]
 ```
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # Why Git?
@@ -116,29 +116,18 @@ Selling points:
 
 ::left::
 
-<v-clicks>
-
 - Multiple collaborators
   - 4 eyes principle
 
-</v-clicks>
-
-<v-clicks at=4>
 <br>
 
 *Joe; I like your change +1*
 
-</v-clicks>
 
 ::right::
 
-<div v-click> 
-
 Git is an collaborative development solution that versions your code enabling multiple collaborators and pair-review processes built into the methodology.
-</div>
 
-
-<div v-click> 
 
 ```diff
 public class Hello1
@@ -150,7 +139,6 @@ public class Hello1
    }
 }
 ```
-</div>
 
 <arrow v-click at=5 x1="250" y1="400" x2="550" y2="450" color="#953" width="2" arrowSize="1" />
 
@@ -164,17 +152,12 @@ Selling points:
 
 ::left::
 
-<div v-click at=1>
-
 - Change history
   - Compliance
   - Reverting is easy
   - Versioning
 
-</div v-click>
-
 ::right::
-<div v-click at=2>
 ```mermaid
 ---
 title: Example Git diagram
@@ -194,9 +177,7 @@ gitGraph
    merge feature/a id: "merge"
    commit id: "commit5" tag:"v1"
 ```
-</div v-click>
 
-<div v-click at=3>
 ```mermaid
 ---
 title: Example Revert
@@ -207,7 +188,7 @@ gitGraph
    commit id: "commit2" tag:"v2"
    commit id: "revert_badCommit" tag:"v2" type: REVERSE
 ```
-</div v-click>
+
 
 ---
 layout:  two-cols-header
@@ -219,24 +200,14 @@ Selling points:
 
 ::left::
 
-<div v-click at=1>
-
 - Automation
   - Quality check
   - Deployment
 
-</div v-click>
-
-
 ::right::
-
-<v-click>
 
 Another benefit of Git is that we can integrate the version control with <span v-mark.circle.orange="3">automation tooling</span> which continuously <span v-mark.circle.red="4">quality checks</span> your code.
 
-</v-click>
-
-<v-click at=5>
 ```mermaid
 ---
 title: Automation
@@ -249,7 +220,6 @@ flowchart LR
   id1 --> id2
   id2 --> id3
 ```
-</v-click>
 
 ---
 
@@ -279,41 +249,28 @@ Useful commands:
 
 Branches in git is the foundation for encapsuling commits in a historic manner. Branches are made for merging in relation to a _base_ branch often named as _main_ or _master_. In the following text we assume _main_, as the default branch.
 
-When a change has been completed on a branch it is ready to be included in _main_. Combining two branches is referred to a *merging*. 
+When a change has been completed on a branch it is ready to be included in _main_. Combining two branches is referred to a *merging*.
 Before we dive into *how* to do it, it is important to talk about *when*. 
 
 Ideally are branches short lived.
 This means that we should strive to get meaningful changes merged back into _main_ as quickly as possible.
 A good rule of thumb is that branches should not live for more than two days.
-In reality, this can be difficult to always do, but it is a good compass, none the less. 
+In reality, this can be difficult to always do, but it is a good compass, none the less.
 
 Following our previous branch we can now go back to main
 
-<v-switch>
-<template #1>
-
 ```mermaid
 gitGraph
    commit id: "initial"
    branch feature/show-branching
-   commit id: "first-feature-change"
-   commit id: "another-change"
-```
- </template>
-<template #2>
-```mermaid
-gitGraph
-   commit id: "initial"
-   branch feature/show-branching
-   commit id: "first-feature-change"
-   commit id: "another-change"
+   commit id: "first-feature"
+   commit id: "another"
    checkout main
    commit id: "main-first-feature"
-   commit id: "main-another-change"
+   commit id: "main-another"
    merge feature/show-branching
 ```
- </template>
-</v-switch>
+
 
 ---
 
@@ -420,39 +377,29 @@ gitGraph
 
 **Rebase** A rebase strategy works a in a sense reverse to how regular merges does. Instead of adding on top of the target branch, rebase takes each commit on the feature branch and merges one by one with the differences that happened on main since the feature branch got created.
 
+<table>
+<tr>
+<th>at rebase</th>
+<th>at merge</th>
+</tr>
+<tr>
+<td>
+<pre>
 ```mermaid
 gitGraph
   commit id: "Init"
   branch feature/rebase
-  commit id: "commit 1"
-  commit id: "commit 2"
   checkout main
   commit id: "commit main"
-```
-
-</template>
-
-<template #6>
-Rebase
-<br>
-
-```mermaid
-gitGraph
-  commit id: "Init"
-  branch feature/rebase
+  checkout feature/rebase
   commit id: "_commit main"
   commit id: "rebased commit 1"
   commit id: "rebased commit 2"
   checkout main
-  commit id: "commit main"
 ```
-
-</template>
-
-<template #7>
-Rebase and merge
-<br>
-
+</pre>
+</td>
+<td>
 ```mermaid
 gitGraph
   commit id: "Init"
@@ -460,10 +407,13 @@ gitGraph
   commit id: "rebased commit 1"
   commit id: "rebased commit 2"
 ```
+</td>
+</tr>
+</table>
 
 </template>
 
-<template #8>
+<template #6>
 
 For more information on read the following topics;
 
@@ -478,14 +428,14 @@ For more information on read the following topics;
 
 # Git: Merge / rebase - rule of thumb
 
-You can use the same methods as mentioned above locally, however there are a few rule-of-thumb's that we want to introduces:
+You can use the same methods as mentioned above locally, however there are 3 rule-of-thumb's that we want to introduces:
 
 
 <v-switch>
 
 <template #1>
 
-**merge with fast-forward**<br>
+1. **merge with fast-forward**<br>
 Pull newest changes of main into your feature branch with fast-forward strategy. This is the safest and cleanest method next to rebase
 
 ```bash{2}
@@ -497,7 +447,7 @@ git pull origin main --ff
 
 <template #2>
 
-**rebase**<br>
+2. **rebase**<br>
 Pull newest changes of main into your feature branch with rebase strategy. You can use this in-case fast-forward fails or you need to be more in control wil merge conflicts
 
 ```bash{2}
@@ -509,7 +459,7 @@ git pull origin main --rebase
 
 <template #3>
 
-**merge with merge commit**<br>
+3. **merge with merge commit**<br>
 Pull newest changes of main into your feature branch with. You can use this in-case fast-forward fails or you need to be more in control wil merge conflicts
 
 ```bash{3}
