@@ -15,7 +15,7 @@ drawings:
 transition: slide-left
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
-lineNumbers: true
+line-numbers: true
 ---
 
 # Welcome to *Git*ting comfortable
@@ -538,7 +538,7 @@ The most notable commands to remember are:
 
 # Git: Merge conflicts - introduction
 
-_Merge conflicts_ are a concept in git that exists due to it by nature is a version control tool, that allows simultaneous client that can change the same files, sometimes on the same linenumber, and if they then try and merge with eachother or both towards _main_ they will experience the concept of _merge conflicts_. The existence of merge conflicts are due to the server not knowing which changes on the same linenumber should be the truth, or if both has the be truth - so you as a client have to help it make that decision by _fixing the merge conflict_.
+_Merge conflicts_ are a concept in git that exists due to it by nature is a version control tool, that allows simultaneous client that can change the same files, sometimes on the same line-number, and if they then try and merge with eachother or both towards _main_ they will experience the concept of _merge conflicts_. The existence of merge conflicts are due to the server not knowing which changes on the same line-number should be the truth, or if both has the be truth - so you as a client have to help it make that decision by _fixing the merge conflict_.
 
 There are not really any useful commands for when you need to handle a merge conflict, but there is one general recommendation;
 
@@ -711,7 +711,7 @@ git reset --hard HEAD~1 # This will undo the latest commit happened on the curre
 
 <template #4>
 
-If you find yourself having commited and pushed the changes to a branch and you want to undo commit, then reset can be used, but it will be much cleaner to do a revert:
+If you find yourself having committed and pushed the changes to a branch and you want to undo commit, then reset can be used, but it will be much cleaner to do a revert:
 
 ```bash
 git revert <commitid>
@@ -808,9 +808,9 @@ Useful commands:
 
 # Git: Push / Pull - recap
 
-In previous section your learned about `git push` and `git pull` which are two commands that relativly synchronize local changes to origin and synchronize origin with your local state. 
+In previous section your learned about `git push` and `git pull` which are two commands that relatively synchronize local changes to origin and synchronize origin with your local state. 
 Git has the notion of a _repository_, to which a user of the repository can synchronize its changes to and the user can `pull` other people changes from.
-It is often best practice to when you have something that is working, and atleast once a day, to push your changes with origin.
+It is often best practice to when you have something that is working, and at least once a day, to push your changes with origin.
 
 The most notable commands to remember are:
 
@@ -840,7 +840,7 @@ A git _Pull-Request_ is a server side operation of facilitating a merge between 
 
 # Git: Pull-Request
 
-lala some course material on git Pull-Request
+404 not found
 
 ---
 
