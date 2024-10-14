@@ -60,7 +60,7 @@ The section noted with "Git: ..." will follow a structure of _introduction_ -> _
 
 Git is a version control system that helps you manage text files of all sorts in a collaborative and structured manner. <br>
 
-The concept of git is that you work with a _repository_ of which you can create _branches_ (think shortlived variants of the codebase) that enables you to collaborate from the same point in time. You `commit` changes to a branch to create a record of your change for others and yourself to keep track of the history in changes. <br>
+The concept of git is that you work with a _repository_ of which you can create _branches_ (think shortlived variants of the codebase) that enables you to collaborate from the same point in time. You use `commit` to move code changes into the _staging area_. This creates a record of your change for others and yourself to keep track of the history of a branch. <br>
 
 At the end you sync changes to a git server with `push` in order to save work and synchronize changes with your colleagues or automation systems.
 
