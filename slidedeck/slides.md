@@ -686,7 +686,15 @@ Useful commands:
 
 # Git: Push / Pull - recap
 
-lala some course material on git push
+In previous section your learned about `git push` and `git pull` which are two commands that relativly synchronize local changes to origin and synchronize origin with your local state. 
+Git has the notion of a _repository_, to which a user of the repository can synchronize its changes to and the user can `pull` other people changes from.
+It is often best practice to when you have something that is working, and atleast once a day, to push your changes with origin.
+
+The most notable commands to remember are:
+
+* `git push`
+* `git pull`
+* `git fetch`
 
 ---
 
@@ -716,7 +724,14 @@ lala some course material on git Pull-Request
 
 # Git: Pull-Request - recap
 
-recap
+In previous section you learned about Pull-Requests for git, which is a server-side technology that facilitates a merge between two branches.
+A Pull-Request is the foundation of collaboration for git, since it is the place where you can raise awareness of your edits and get input on them.
+
+With a Pull-Request you get functionality like; 
+* _assignee_ & _reviewers_
+* _commit threads_
+* _approvals/rejections/suggestions_
+* and more.
 
 ---
 
