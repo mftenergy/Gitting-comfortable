@@ -145,8 +145,6 @@ public class Hello1
 }
 ```
 
-<arrow v-click at=5 x1="250" y1="400" x2="550" y2="450" color="#953" width="2" arrowSize="1" />
-
 ---
 layout: two-cols-header
 ---
@@ -199,7 +197,7 @@ gitGraph
 layout:  two-cols-header
 ---
 
-# Why Git
+# Why Git?
 
 Selling points:
 
@@ -564,11 +562,7 @@ This will result in a conflict where both colleague1 and colleague2 have changed
 
 ```diff {all|3|5|all}
 @@@ -1,1 -1,1 +1,5 @@@
-++<<<<<<< HEAD
 +echo "hello colleague1"
-++=======
-+ +echo "hello colleague2"
-++>>>>>>> feature/colleague2
 ```
 
 The diff is noted with all the special characters you in one block has what current revision marks as the "truth" and another block marks the incoming change as possible new "truth". Merge conflicts can happen both when doing local merge/rebase or when you open a PR. Often times the git server cannot handle merge conflicts for you, so you are required to do it locally.
