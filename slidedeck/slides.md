@@ -308,10 +308,18 @@ Git `merge` or `rebase` is an operation of combining the content of two branches
 
 Useful commands:
 
-* `git merge origin/main` - when a feature branch is checked out, then this command will merge the current _local_ changes of main into your current checked out branch.
-* `git pull origin/main` - this is a combination command that will first pull changes from `origin main` and then merge these changes to your current checked out branch.
-* `git rebase origin/main` - this will do a rebase of current branch based on `origin main`.
-* [Git merge strategies](https://git-scm.com/docs/merge-strategies) - this docs, which can also be read with `man git merge`, explains different merge strategies that can be applied to `git merge`.
+```bash
+# when a feature branch is checked out, then this command will merge the  current _local_ changes of 
+# main into your current checked out branch.
+git merge origin/main
+# this is a combination command that will first pull changes from `origin main` and then merge these 
+# changes to your current checked out branch.
+git pull origin/main 
+# this will do a rebase of current branch based on `origin main`.
+git rebase origin/main
+```
+
+[Git merge strategies](https://git-scm.com/docs/merge-strategies) - explains different merge strategies that can be applied to `git merge`.
 
 ---
 
