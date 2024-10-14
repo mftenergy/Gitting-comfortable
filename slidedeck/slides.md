@@ -65,14 +65,19 @@ The concept of git is that you work with a _repository_ of which you can create 
 At the end you sync changes to a git server with `push` in order to save work and synchronize changes with your colleagues or automation systems.
 
 ```bash
+# Add a file to "staging"
+git add <file>
 
-git add <file> # Add a file to "staging"
+# Records all changes that are staged by add with documentation on the work 
+# done in the files
+git commit -m <message>
 
-git commit -m <message> # Records all changes that are staged by add with documentation on the work done in the files
+# Push all missing commits from localhost (your machine) to a git server 
+# syncing your records with a server for collaboration
+git push -u origin <branch>
 
-git push -u origin <branch> # Push all missing commits from localhost (your machine) to a git server syncing your records with a server for collaboration
-
-git checkout -b <branch> # Create and switch branch in a single command
+# Create and switch branch in a single command
+git checkout -b <branch>
 ```
 
 ---
