@@ -112,7 +112,7 @@ C2 -->|commit| L2[Local Repository]
 ```
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # Why Git?
@@ -121,11 +121,15 @@ Selling points:
 
 ::left::
 
-<!-- The left side of this does not show for some reason?! -->
 - Multiple collaborators
  - 4 eyes principle
 
+<br>
+<br>
+
 *Joe; I like your change +1*
+
+<arrow v-click at=5 x1="250" y1="400" x2="550" y2="450" color="#953" width="2" arrowSize="1" />
 
 ::right::
 <div v-click> 
@@ -533,73 +537,6 @@ There are not really any useful commands for when you need to handle a merge con
 <br>
 
 <div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/Sqsz1-o7nXk?si=-vQfv2kamrGYfnf4&amp;start=68" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-
----
-
-# Git: Merge conflicts
-
-When you are more than one participant on a git repository, then you will at some point run into a merge conflict. <br>
-
-<v-switch>
-
-<template #1>
-
-Think of a scenario where you and a colleague both created a branch from main:
-
-```mermaid
-gitGraph
-  commit id: "1"
-  branch feature/colleague1
-  commit id: "2"
-  checkout main
-  branch feature/colleague2
-  commit id: "3"
-```
-
-</template>
-
-<template #2>
-
-You both edited the same file _text.txt_ on the same line 1:
-
-(colleague1)
-```diff
-
-+echo "hello colleague1"
-
-```
-
-(colleague2)
-```diff
-
-+echo "hello colleague2"
-
-```
-
-</template>
-
-</v-switch>
-
----
-
-# Git: Merge conflicts
-
-When you are more than one participant on a git repository, then you will at some point run into a merge conflict. <br>
-
-This will result in a conflict where both colleague1 and colleague2 have changed the exact same line on the exact same file;
-
-```diff {all|3|5|all}
-@@@ -1,1 -1,1 +1,5 @@@
-++<<<<<<< HEAD
-+echo "hello colleague1"
-++=======
-+ +echo "hello colleague2"
-++>>>>>>> feature/colleague2
-```
-
-The diff is noted with all the special characters you in one block has what current revision marks as the "truth" and another block marks the incoming change as possible new "truth". Merge conflicts can happen both when doing local merge/rebase or when you open a PR. Often times the git server cannot handle merge conflicts for you, so you are required to do it locally.
-
-Merge conflicts can be handled "easily" in your favorite IDE.
 
 ---
 
