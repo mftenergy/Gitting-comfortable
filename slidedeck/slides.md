@@ -255,14 +255,14 @@ flowchart LR
 
 # Git: Branches - introduction
 
-Git `branches` is a requirement of git. `Branches` are effectively a pointer to a snapshot of your changes, they keep track of increments in commits, and you have multiple long or short-lived `branches` where when you combine branches with a `merge`, the origin of the _from_ branch can be deleted.
+Git _branches_ is a requirement of git. _Branches_ are effectively a pointer to a snapshot of your changes, they keep track of increments in commits, and you have multiple long or short-lived _branches_ where when you combine branches with a `merge`, the origin of the _from_ branch can be deleted.
 
 Useful commands:
 
 * `git branch -a` - will display all available branches both remote and local
-* `git branch name` - will create `name` as a branch
-* `git checkout name` - will switch to newly created branch `name`
-* `git checkout -b featurebranch` - will create branch `featurebranch` and switch to it, all in one command.
+* `git branch name` - will create _name_ as a branch
+* `git checkout name` - will switch to newly created branch _name_
+* `git checkout -b featurebranch` - will create branch _featurebranch_ and switch to it, all in one command.
 
 ---
 
@@ -279,11 +279,11 @@ Useful commands:
 
 Combining branches
 
-When a change has been completed on a branch it is ready to be included in `main`. Combining two branches is referred to a *merging*. 
+When a change has been completed on a branch it is ready to be included in _main_. Combining two branches is referred to a *merging*. 
 Before we dive into *how* to do it, it is important to talk about *when*. 
 
 Ideally are branches short lived.
-This means that we should strive to get meaningful changes merged back into `main` as quickly as possible.
+This means that we should strive to get meaningful changes merged back into _main_ as quickly as possible.
 A good rule of thumb is that branches should not live for more than two days.
 In reality, this can be difficult to always do, but it is a good compass, none the less. 
 
@@ -319,7 +319,7 @@ gitGraph
 
 # Git: Branches - recap
 
-In previous sections you learned about git `branches`, which to git is the basis for simultaneous work done safely on the same code base. It can be used to do increments on repositories and then `merge` your branch into other branches in order to synchronize your changes with other peers.
+In previous sections you learned about git _branches_, which to git is the basis for simultaneous work done safely on the same code base. It can be used to do increments on repositories and then `merge` your branch into other branches in order to synchronize your changes with other peers.
 
 The most notable commands to remember from branches are:
 
@@ -331,11 +331,11 @@ The most notable commands to remember from branches are:
 
 # Git: Merge / rebase - introduction
 
-Git `merge` or `rebase` is an operation of combining the content of two branches. It is mostly used locally when you branch out of your `main` or `master` branch and want to `merge` `main` into your feature branch in order to get the latest revision of changes from main. A `merge` is also used when going from a feature branch to `main` but this is often facilitated by a `Pull-Request` which we will go over in later chapters.
+Git `merge` or `rebase` is an operation of combining the content of two branches. It is mostly used locally when you branch out of your _main_ or _master_ branch and want to `merge` _main_ into your feature branch in order to get the latest revision of changes from main. A `merge` is also used when going from a feature branch to _main_ but this is often facilitated by a _Pull-Request_ which we will go over in later chapters.
 
 Useful commands:
 
-* `git merge origin/main` - when a feature branch is checked out, then this command will merge the current `local` changes of main into your current checked out branch.
+* `git merge origin/main` - when a feature branch is checked out, then this command will merge the current _local_ changes of main into your current checked out branch.
 * `git pull origin/main` - this is a combination command that will first pull changes from `origin main` and then merge these changes to your current checked out branch.
 * `git rebase origin/main` - this will do a rebase of current branch based on `origin main`.
 * [Git merge strategies](https://git-scm.com/docs/merge-strategies) - this docs, which can also be read with `man git merge`, explains different merge strategies that can be applied to `git merge`.
@@ -404,7 +404,7 @@ git merge origin/main
 
 # Git: Merge / rebasing - recap
 
-In previous section you learned about git `merge` and `rebase` which are both methods of combining content between two branches. They are similar in usage, but function differently in how the history will turn out for the two operations. We use `merge` or `rebase` locally when we want to pull new changes from `main` into our feature branch or when we want to combine two local branches. 
+In previous section you learned about git `merge` and `rebase` which are both methods of combining content between two branches. They are similar in usage, but function differently in how the history will turn out for the two operations. We use `merge` or `rebase` locally when we want to pull new changes from _main_ into our feature branch or when we want to combine two local branches.
 
 The most notable commands to remember are:
 
@@ -416,7 +416,7 @@ The most notable commands to remember are:
 
 # Git: Merge conflicts - introduction
 
-`Merge conflicts` are a concept in git that exists due to it by nature is a version control tool, that allows simultaneous client that can change the same files, sometimes on the same linenumber, and if they then try and merge with eachother or both towards `main` they will experience the concept of `merge conflicts`. The existence of merge conflicts are due to the server not knowing which changes on the same linenumber should be the truth, or if both has the be truth - so you as a client have to help it make that decision by `fixing the merge conflict`.
+_Merge conflicts_ are a concept in git that exists due to it by nature is a version control tool, that allows simultaneous client that can change the same files, sometimes on the same linenumber, and if they then try and merge with eachother or both towards _main_ they will experience the concept of _merge conflicts_. The existence of merge conflicts are due to the server not knowing which changes on the same linenumber should be the truth, or if both has the be truth - so you as a client have to help it make that decision by _fixing the merge conflict_.
 
 There are not really any useful commands for when you need to handle a merge conflict, but there is one general recommendation;
 
@@ -457,7 +457,7 @@ gitGraph
 
 <template #2>
 
-You both edited the same file `text.txt` on the same line 1:
+You both edited the same file _text.txt_ on the same line 1:
 
 (colleague1)
 ```diff
@@ -502,9 +502,9 @@ Merge conflicts can be handled "easily" in your favorite IDE.
 
 # Git: Merge conflicts - recap
 
-In previous section you learned about `merge conflicts` in git. Merge conflicts is when git does not know the truth about how to handle two changes in the same file on the same line. The conflict is always a result of either a `merge` with another branch that contains edits on the same line in the same file as you have on your current branch.
+In previous section you learned about _merge conflicts_ in git. Merge conflicts is when git does not know the truth about how to handle two changes in the same file on the same line. The conflict is always a result of either a `merge` with another branch that contains edits on the same line in the same file as you have on your current branch.
 
-The key takeaway of this section is that `merge conflicts` can be a pain to work with, but is necessary for git to have as a concept, and without a UI tool, merge conflicts can be challenging to deal with.
+The key takeaway of this section is that _merge conflicts_ can be a pain to work with, but is necessary for git to have as a concept, and without a UI tool, merge conflicts can be challenging to deal with.
 
 ---
 
@@ -700,10 +700,10 @@ The most notable commands to remember are:
 
 # Git: Pull-Request - introduction
 
-A git `Pull-Request` is a server side operation of facilitating a merge between two branches. A `Pull-Request` differs a lot servers between, but generally they all contain functionality like;
+A git _Pull-Request_ is a server side operation of facilitating a merge between two branches. A _Pull-Request_ differs a lot servers between, but generally they all contain functionality like;
 
-* Viewing diff view of changes `from` branch `to` branch
-* `Assignee` and `Reviewer`
+* Viewing diff view of changes _from_ branch _to_ branch
+* _Assignee_ and _Reviewer_
 * Comment threads
 * Approvals, rejections and suggestions
 * Merge with support for different strategies
@@ -727,7 +727,7 @@ lala some course material on git Pull-Request
 In previous section you learned about Pull-Requests for git, which is a server-side technology that facilitates a merge between two branches.
 A Pull-Request is the foundation of collaboration for git, since it is the place where you can raise awareness of your edits and get input on them.
 
-With a Pull-Request you get functionality like; 
+With a Pull-Request you get functionality like;
 * _assignee_ & _reviewers_
 * _commit threads_
 * _approvals/rejections/suggestions_
