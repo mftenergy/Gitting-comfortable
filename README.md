@@ -2,7 +2,7 @@
 
 ## Course theory
 
-Read the [course material](https://mftenergy.github.io/git-course/1)
+Read the [course material](https://mftenergy.github.io/Gitting-comfortable)
 
 ## Exercises
 
