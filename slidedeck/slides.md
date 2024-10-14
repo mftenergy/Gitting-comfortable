@@ -112,7 +112,7 @@ C2 -->|commit| L2[Local Repository]
 ```
 
 ---
-layout: two-cols-header
+layout: two-cols
 ---
 
 # Why Git?
@@ -121,15 +121,14 @@ Selling points:
 
 ::left::
 
+<!-- The left side of this does not show for some reason?! -->
 - Multiple collaborators
-  - 4 eyes principle
-
-<br>
+ - 4 eyes principle
 
 *Joe; I like your change +1*
 
-
 ::right::
+<div v-click> 
 
 Git is an collaborative development solution that versions your code enabling multiple collaborators and pair-review processes built into the methodology.
 
@@ -143,7 +142,10 @@ public class Hello1
 +      System.Console.WriteLine("Rock all night long!");
    }
 }
-```
+```  
+
+
+</div>
 
 ---
 layout: two-cols-header
@@ -155,12 +157,15 @@ Selling points:
 
 ::left::
 
+
 - Change history
   - Compliance
   - Reverting is easy
   - Versioning
 
+
 ::right::
+<div v-click>
 ```mermaid
 ---
 title: Example Git diagram
@@ -180,7 +185,9 @@ gitGraph
    merge feature/a id: "merge"
    commit id: "commit5" tag:"v1"
 ```
+</div v-click>
 
+<div v-click at=2>
 ```mermaid
 ---
 title: Example Revert
@@ -191,7 +198,7 @@ gitGraph
    commit id: "commit2" tag:"v2"
    commit id: "revert_badCommit" tag:"v2" type: REVERSE
 ```
-
+</div v-click>
 
 ---
 layout:  two-cols-header
@@ -203,14 +210,24 @@ Selling points:
 
 ::left::
 
+<div >
+
 - Automation
   - Quality check
   - Deployment
 
+</div>
+
+
 ::right::
 
-Another benefit of Git is that we can integrate the version control with <span v-mark.circle.orange="3">automation tooling</span> which continuously <span v-mark.circle.red="4">quality checks</span> your code.
+<v-click>
 
+Another benefit of Git is that we can integrate the version control with <span v-mark.circle.orange="1">automation tooling</span> which continuously <span v-mark.circle.red="1">quality checks</span> your code.
+
+</v-click>
+
+<v-click at=2>
 ```mermaid
 ---
 title: Automation
@@ -223,6 +240,7 @@ flowchart LR
   id1 --> id2
   id2 --> id3
 ```
+</v-click>
 
 ---
 
@@ -252,27 +270,13 @@ Useful commands:
 
 Branches in git is the foundation for encapsuling commits in a historic manner. Branches are made for merging in relation to a _base_ branch often named as _main_ or _master_. In the following text we assume _main_, as the default branch.
 
-When a change has been completed on a branch it is ready to be included in _main_. Combining two branches is referred to a *merging*.
+When a change has been completed on a branch it is ready to be included in _main_. Combining two branches is referred to a *merging*. 
 Before we dive into *how* to do it, it is important to talk about *when*. 
 
 Ideally are branches short lived.
 This means that we should strive to get meaningful changes merged back into _main_ as quickly as possible.
 A good rule of thumb is that branches should not live for more than two days.
-In reality, this can be difficult to always do, but it is a good compass, none the less.
-
-Following our previous branch we can now go back to main
-
-```mermaid
-gitGraph
-   commit id: "initial"
-   branch feature/show-branching
-   commit id: "first-feature"
-   commit id: "another"
-   checkout main
-   commit id: "main-first-feature"
-   commit id: "main-another"
-   merge feature/show-branching
-```
+In reality, this can be difficult to always do, but it is a good compass, none the less. 
 
 
 ---
@@ -283,10 +287,19 @@ In previous sections you learned about git _branches_, which to git is the basis
 
 The most notable commands to remember from branches are:
 
-* `git branch -r`
-* `git checkout <branch-name>`
-* `git checkout -b <branch-name>`
+```bash
+# list local branches
+git branch
 
+# list remote branches
+git branch -r
+
+# checkout a branch
+git chechout <branch-name >
+
+# create and checkout a new branch
+git chechout -b <branch-name >
+```
 ---
 
 # Git: Merge / rebase - introduction
@@ -380,29 +393,39 @@ gitGraph
 
 **Rebase** A rebase strategy works a in a sense reverse to how regular merges does. Instead of adding on top of the target branch, rebase takes each commit on the feature branch and merges one by one with the differences that happened on main since the feature branch got created.
 
-<table>
-<tr>
-<th>at rebase</th>
-<th>at merge</th>
-</tr>
-<tr>
-<td>
-<pre>
 ```mermaid
 gitGraph
   commit id: "Init"
   branch feature/rebase
+  commit id: "commit 1"
+  commit id: "commit 2"
   checkout main
   commit id: "commit main"
-  checkout feature/rebase
+```
+
+</template>
+
+<template #6>
+Rebase
+<br>
+
+```mermaid
+gitGraph
+  commit id: "Init"
+  branch feature/rebase
   commit id: "_commit main"
   commit id: "rebased commit 1"
   commit id: "rebased commit 2"
   checkout main
+  commit id: "commit main"
 ```
-</pre>
-</td>
-<td>
+
+</template>
+
+<template #7>
+Rebase and merge
+<br>
+
 ```mermaid
 gitGraph
   commit id: "Init"
@@ -410,13 +433,10 @@ gitGraph
   commit id: "rebased commit 1"
   commit id: "rebased commit 2"
 ```
-</td>
-</tr>
-</table>
 
 </template>
 
-<template #6>
+<template #8>
 
 For more information on read the following topics;
 
@@ -431,14 +451,14 @@ For more information on read the following topics;
 
 # Git: Merge / rebase - rule of thumb
 
-You can use the same methods as mentioned above locally, however there are 3 rule-of-thumb's that we want to introduces:
+You can use the same methods as mentioned above locally, however there are a few rule-of-thumb's that we want to introduces:
 
 
 <v-switch>
 
 <template #1>
 
-1. **merge with fast-forward**<br>
+**merge with fast-forward**<br>
 Pull newest changes of main into your feature branch with fast-forward strategy. This is the safest and cleanest method next to rebase
 
 ```bash{2}
@@ -450,7 +470,7 @@ git pull origin main --ff
 
 <template #2>
 
-2. **rebase**<br>
+**rebase**<br>
 Pull newest changes of main into your feature branch with rebase strategy. You can use this in-case fast-forward fails or you need to be more in control wil merge conflicts
 
 ```bash{2}
@@ -462,7 +482,7 @@ git pull origin main --rebase
 
 <template #3>
 
-3. **merge with merge commit**<br>
+**merge with merge commit**<br>
 Pull newest changes of main into your feature branch with. You can use this in-case fast-forward fails or you need to be more in control wil merge conflicts
 
 ```bash{3}
@@ -562,7 +582,11 @@ This will result in a conflict where both colleague1 and colleague2 have changed
 
 ```diff {all|3|5|all}
 @@@ -1,1 -1,1 +1,5 @@@
+++<<<<<<< HEAD
 +echo "hello colleague1"
+++=======
++ +echo "hello colleague2"
+++>>>>>>> feature/colleague2
 ```
 
 The diff is noted with all the special characters you in one block has what current revision marks as the "truth" and another block marks the incoming change as possible new "truth". Merge conflicts can happen both when doing local merge/rebase or when you open a PR. Often times the git server cannot handle merge conflicts for you, so you are required to do it locally.
