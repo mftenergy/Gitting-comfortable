@@ -617,11 +617,19 @@ Git `revert` or `reset` function differently, but they are often used with the s
 
 Useful commands:
 
-* `git reset HEAD~1` - will reset the current changes with the one commit happened on `HEAD` of the branch. The changes will end up unstaged
-* `git reset --soft HEAD~1` - the `--soft` adds that the changes will be staged instead of unstaged
-* `git reset --hard HEAD~1` - the `--hard` adds that the changes will be completely undone.
-* `git revert <commit-id>` - will create a new commit reverting the content of commit id you put into `<commit-id>`.
+```bash
+# Reset the current changes with the one commit on HEAD of the branch. The changes will end up unstaged.
+git reset HEAD~1 
 
+# The --soft flag stages the changes instead of leaving them unstaged.
+git reset --soft HEAD~1 
+
+# The --hard flag completely undoes the changes.
+git reset --hard HEAD~1 
+
+# Create a new commit that reverts the content of the specified commit.
+git revert <commit-id> 
+```
 ---
 
 # Git: Revert / reset - video
