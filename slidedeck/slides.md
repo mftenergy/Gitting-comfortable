@@ -473,12 +473,27 @@ A git _Pull-Request_ is a server side operation (GitHub, Azure DevOps, Bitbucket
 * Merge with support for different strategies
 
 ---
+layout: image-right
+image: /PR_view.png
+backgroundSize: 80%
+---
 
 # Git: Pull-Request
 
-images.....
+On the right hand-side you see a screenshot of how a Pull-Request looks like in GitHub. Note the numbers marked on the image in different sections.
 
+<v-switch>
 
+  <template #1> 1. This is the reviewer section who is in charge of reviewing code </template>
+  <template #2> 2. The assignee section who is in charge of dealing with the reviewed code and the merge. This is usually the raiser of the Pull-Request </template>
+  <template #3> 3. This is where you "complete" the Pull-Request by merging it </template>
+  <template #4> 4. Here you can write comments and make comment threads addressing issues, reviews etc. </template>
+  <template #5> 5. This is the event view in historical order of what happened. Comments and reviews will appear here in chronological order </template>
+  <template #6> 6. This tab switches the view of Pull-Request between the "conversation" view (as you see on the screenshot), "commits", "checks" (pipelines) and "Files changed" (git diff view) </template>
+  <template #7> 7. This is the description of the Pull-Request where you as the creator of the Pull-Request document the intent of the Pull-Request </template>
+  <template #8> 8. Finally the title of the Pull-Request </template>
+
+</v-switch>
 ---
 
 # Git: Pull-Request - recap
