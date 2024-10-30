@@ -659,24 +659,24 @@ The main difference between revert and reset is that revert is for undoing chang
 
 # Git: Revert / Reset - recap
 
-In previous section you learned about git `revert` and `reset`, which both are two commands for undoing work in git. `Revert` will undo commit(s) by creating a new commit with the undoing of the changes, while `reset` will "uncommit" or entirely erase committed changes based on strategy.
+In previous section you learned about git `revert` and `reset`, which both are two commands for undoing commits in git. `Revert` will undo commit(s) by creating a new commit with the undoing of the changes. This is useful for changed that are already pushed to origin.
+`reset` will "uncommit" or entirely erase committed changes based on strategy, which is the go-to approach on changes not yet pushed.
 
 The most notable commands to remember are:
 
-* `git reset --soft/hard <commit-id>/HEAD~<index>`
-* `git revert <commit-id>/HEAD~<index>`
+* `git reset --soft HEAD~1` # for undoing the latest commit but keeping the changes staged
+* `git revert HEAD~1` # make a new commit that undo the last commit
+* `git revert <commit-id>` # make a new commit that undo all changes after a specific commit
 
 ---
 
 # Git: Stash - introduction
 
-Git `stash` is a command that can help you save work that you unintentionally put on the wrong branch. When you have made changes to files while having checked out the wrong branch, and you then want to transfer said changes to a correct target branch, then git will prohibit you from simply checkout out said branch. This is where `git stash` comes in handy, since you by this can save work in a queue, checkout the correct target branch and `pop` the changes out of the queue thereby onto the current target branch.
+Git `stash` is a command that moves your changes to a local storage. It can help you save work that you do not yet know where to commit. It can also be used to move changes from one branch to another without having to commit them. git will prohibit you from doing checkout out on a branch with uncommitted changes. This is where `git stash` comes in handy, since you can save work, checkout another branch, and apply the changes from the stash.
 
-Useful commands:
+The following video will explain how to do this.
 
-* `git stash --include-untracked` - will stash the current staged, unstaged and untracked files into the `stash`
-* `git stash pop` - will remove the latest changes added to `stash` and add them to the current checked out branch
-* `git stash list` - will show the items in the current `stash` queue
+
 
 ---
 
