@@ -44,24 +44,23 @@ In the upcomming slides we will go through;
 
 * Basics of Git
 * Why Git?
+* Git: Push/Pull
 * Git: branches
 * Git: Merges / rebasing
 * Git: Merge conflicts
 * Git: Revert / reset
 * Git: Stash
-* Git: Push/Pull
 * Git: Pull-Request
 
-The section noted with "Git: ..." will follow a structure of _introduction_ -> _video_ -> _theory_ -> _wrap-up_
+The section noted with "Git: ..." will follow a structure of _introduction_ -> _video_ -> (_theory_ - if needed) -> _wrap-up_
 
 ---
 
 # Basics of Git
 
-Git is a version control system that helps you manage text files of all sorts in a collaborative and structured manner. <br>
+Git is a version control system that helps you manage text files of all sorts in a collaborative and structured manner.
 
-The concept of git is that you work with a _repository_ of which you can create _branches_ (think shortlived variants of the codebase) that enables you to collaborate from the same point in time. You use `commit` to move code changes into the _staging area_. This creates a record of your change for others and yourself to keep track of the history of a branch. <br>
-
+The concept of git is that you work with a _repository_ of which you can create _branches_ (think shortlived variants of the codebase) that enables you to collaborate from the same point in time. You use `commit` to move code changes into the _staging area_. This creates a record of your change for others and yourself to keep track of the history of a branch.
 At the end you sync changes to a git server with `push` in order to save work and synchronize changes with your colleagues or automation systems.
 
 ```bash
@@ -127,7 +126,11 @@ Selling points:
 <br>
 <br>
 
+<div v-click>
+
 *Joe; I like your change +1*
+
+</div>
 
 <arrow v-click at=5 x1="250" y1="400" x2="550" y2="450" color="#953" width="2" arrowSize="1" />
 
@@ -147,8 +150,6 @@ public class Hello1
    }
 }
 ```  
-
-
 </div>
 
 ---
@@ -245,6 +246,21 @@ flowchart LR
   id2 --> id3
 ```
 </v-click>
+
+---
+
+# Git: Push / Pull - introduction
+
+In the upcoming section we will dive into the basics of git, but in order for you to have the best experience learning these concepts we need to introduce `git push` and `git pull`.
+
+When you have changes (_commits_) that others could be interested in, you should run `git push`.
+This takes everything you have committed on the active branch and moves those changes to origin.
+Similarly, you should regularly run `git pull` to synchronize your local repository with what others have pushed to origin.
+
+Useful commands:
+
+* `git push origin` - will push changes to origin for the current checked out branch
+* `git pull origin` - will pull changes from origin for the current checked out branch
 
 ---
 
@@ -405,85 +421,6 @@ git revert <commit-id>
 
 ---
 
-# Git: Revert / Reset
-
-You can end up in a situation where you find yourself in a detached head state or you simply committed to the wrong branch or similar. This is where [git revert](https://git-scm.com/docs/git-revert) or [git reset](https://git-scm.com/docs/git-reset) comes in handy.
-
-<v-switch>
-
-<template #1>
-
-Lets say you ended up in a situation where you did not want to have committed the files anyway.
-
-```diff
-
-echo "hello world"
-+ echo "I did not want this change to be in the file
-```
-
-</template>
-
-<template #2>
-
-Your git status says that you have one change yet to be synced:
-
-```{2}
-On branch feature/merge_strategies
-Your branch is ahead of 'origin/feature/merge_strategies' by 1 commit.
-  (use "git push" to publish your local commits)
-
-nothing to commit, working tree clean
-```
-
-</template>
-
-<template #3>
-
-Then using git reset can help you get back to a point where you can edit the commit once again or scratch the commit entirely.
-
-```bash
-git reset --soft <commitid>
-git reset --hard <commitid>
-```
-
-<br>
-
-```bash
-git reset --soft HEAD~1 # This will undo the latest commit happened on the current branch. 
-  # --soft will make it so the edit is still changed and staged but not committed
-```
-
-<br>
-
-```bash
-git reset --hard HEAD~1 # This will undo the latest commit happened on the current branch. 
-# --hard will make it so the edit of the commit is nowhere to be found anymore.
-```
-
-</template>
-
-<template #4>
-
-If you find yourself having committed and pushed the changes to a branch and you want to undo commit, then reset can be used, but it will be much cleaner to do a revert:
-
-```bash
-git revert <commitid>
-```
-
-<br>
-
-```bash
-git revert HEAD~1 # This will create a new commit undoing all changes from the latest commit on the branch
-```
-
-The main difference between revert and reset is that revert is for undoing changes with a new commit, whereas reset is mostly used before changes are synced with origin
-
-</template>
-
-</v-switch>
-
----
-
 # Git: Revert / Reset - recap
 
 In previous section you learned about git `revert` and `reset`, which both are two commands for undoing commits in git. `Revert` will undo commit(s) by creating a new commit with the undoing of the changes. This is useful for changed that are already pushed to origin.
@@ -503,8 +440,6 @@ Git `stash` is a command that moves your changes to a local storage. It can help
 
 The following video will explain how to do this.
 
-
-
 ---
 
 # Git: Stash - video
@@ -513,21 +448,6 @@ The following video will explain how to do this.
 <br>
 
 <div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/lH3ZkwbVp5E?si=z4V07VS_zoSn5Qb0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-
----
-
-# Git: Stash
-
-Git stashing is the method of saving your unstaged work for a later point. Often it can be used to save work in order to do a `git pull` or if you made changes on a branch that should not have been done from that revision.
-
-Git stash works as a LIFO queue (last in - first out), where if you run `git stash push` then an entry is put into the cue with the current stages and unstaged changes. If you then run `git stash pop` then the edits you just put int op the queue are "popped" from the queue and the edits are present again.
-
-```bash
-git stash list # will list the current queue of stashed entries
-git stash # will push current edits into a stash entry for the queue
-git stash list # Should now have a single entry in it
-git stash pop # will remove the entry from the queue and apply the edits again in the local repo
-```
 
 ---
 
@@ -542,40 +462,9 @@ The most notable commands to remember are:
 
 ---
 
-# Git: Push / Pull - introduction
-
-Git `push` or `pull` are operations that respectively push or pull synchronize commits to/with origin for a given branch or all branches. With `git push` you add your local changes to a remote repository, and with `git pull` you fetch and include remote changes into your branch.
-
-Useful commands:
-
-* `git push origin` - will push changes to origin for the current checked out branch
-* `git pull origin` - will pull changes from origin for the current checked out branch
-
----
-
-# Git: Push / Pull - video
-
-404 not found
-
----
-
-# Git: Push / Pull - recap
-
-In previous section your learned about `git push` and `git pull` which are two commands that relatively synchronize local changes to origin and synchronize origin with your local state. 
-Git has the notion of a _repository_, to which a user of the repository can synchronize its changes to and the user can `pull` other people changes from.
-It is often best practice to when you have something that is working, and at least once a day, to push your changes with origin.
-
-The most notable commands to remember are:
-
-* `git push`
-* `git pull`
-* `git fetch`
-
----
-
 # Git: Pull-Request - introduction
 
-A git _Pull-Request_ is a server side operation of facilitating a merge between two branches. A _Pull-Request_ differs a lot servers between, but generally they all contain functionality like;
+A git _Pull-Request_ is a server side operation (GitHub, Azure DevOps, Bitbucket etc) of facilitating a merge between two branches. A _Pull-Request_ differs a lot servers between, but generally they all contain functionality like;
 
 * Viewing diff view of changes _from_ branch _to_ branch
 * _Assignee_ and _Reviewer_
@@ -585,15 +474,10 @@ A git _Pull-Request_ is a server side operation of facilitating a merge between 
 
 ---
 
-# Git: Pull-Request - video
-
-404 not found
-
----
-
 # Git: Pull-Request
 
-404 not found
+images.....
+
 
 ---
 
