@@ -37,6 +37,9 @@ jobs:
       - name: Build
         working-directory: ./slidedeck
         run: nr build --base /${{github.event.repository.name}}
+      
+      - name: cp
+        run: cp -r slidedeck/dist/*.png slidedeck/dist/assets
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
