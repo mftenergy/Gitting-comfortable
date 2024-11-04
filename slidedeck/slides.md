@@ -3,7 +3,7 @@
 theme: seriph
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: /MFT_background_1.png
+background: MFT_background_1.png
 # some information about your slides (markdown enabled)
 title: Welcome to Slidev
 # apply unocss classes to the current slide
