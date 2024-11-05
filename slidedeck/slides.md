@@ -474,7 +474,7 @@ A git _Pull-Request_ is a server side operation (GitHub, Azure DevOps, Bitbucket
 
 ---
 layout: image-right
-image: /PR_view.png
+image: PR_view.png
 backgroundSize: 80%
 ---
 
